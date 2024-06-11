@@ -215,7 +215,9 @@ class Imagen {
   // }
 
     String get fullImageUrl {
-    const baseUrl = 'https://jose-test.site/api/imagenes';
+    const baseUrl = 'http://192.168.1.106:8001/api/imagenes';
     return '$baseUrl/${url.split('/').last}';
+    //  const baseUrl = 'https://jose-test.site/api/imagenes';
+    // return '$baseUrl/${url.split('/').last}';
   }
 }

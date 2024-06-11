@@ -9,6 +9,7 @@ class AnuncioProduct {
   final double rating;
   final double precio;
   final bool isFavourite, isPopular;
+  final int sellerId;
 
   AnuncioProduct({
     required this.id,
@@ -20,8 +21,10 @@ class AnuncioProduct {
     required this.titulo,
     required this.precio,
     required this.descripcion,
+    required this.sellerId,
   });
 
+  
   factory AnuncioProduct.fromAnuncio(Anuncio anuncio) {
     return AnuncioProduct(
       id: anuncio.id,
@@ -38,6 +41,7 @@ class AnuncioProduct {
       ],
       isFavourite: false, // Puedes asignar un valor predeterminado o calcularlo de alguna manera
       isPopular: false, // Puedes asignar un valor predeterminado o calcularlo de alguna manera
+      sellerId: anuncio.userId,
     );
   }
 }

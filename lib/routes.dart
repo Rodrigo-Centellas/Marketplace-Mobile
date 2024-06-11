@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/screens/products/products_screen.dart';
-
 import 'screens/cart/cart_screen.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
 import 'screens/details/details_screen.dart';
@@ -13,9 +12,10 @@ import 'screens/profile/profile_screen.dart';
 import 'screens/sign_in/sign_in_screen.dart';
 import 'screens/sign_up/sign_up_screen.dart';
 import 'screens/splash/splash_screen.dart';
+import 'screens/messages/message_screen.dart';
+import 'screens/membership/membership_screen.dart';
+import 'screens/payment/payment_screen.dart';
 
-// We use name route
-// All our routes will be available here
 final Map<String, WidgetBuilder> routes = {
   InitScreen.routeName: (context) => const InitScreen(),
   SplashScreen.routeName: (context) => const SplashScreen(),
@@ -30,4 +30,7 @@ final Map<String, WidgetBuilder> routes = {
   DetailsScreen.routeName: (context) => const DetailsScreen(),
   CartScreen.routeName: (context) => const CartScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
+  MessageScreen.routeName: (context) => const MessageScreen(),
+  // MembershipScreen.routeName: (context) => const MembershipScreen(),
+  // PaymentScreen.routeName: (context) => PaymentScreen(), // Eliminar const aquí
 };

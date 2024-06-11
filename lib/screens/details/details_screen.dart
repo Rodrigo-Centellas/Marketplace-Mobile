@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/screens/cart/cart_screen.dart';
+import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/screens/messages/message_screen.dart';
+import 'package:shop_app/Api/token_storage_service.dart';
 
-import '../../models/Product.dart';
 import 'components/color_dots.dart';
 import 'components/product_description.dart';
 import 'components/product_images.dart';
@@ -18,6 +19,7 @@ class DetailsScreen extends StatelessWidget {
     final ProductDetailsArguments agrs =
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     final product = agrs.product;
+
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -49,8 +51,7 @@ class DetailsScreen extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(right: 20),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(14),
@@ -104,10 +105,34 @@ class DetailsScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: ElevatedButton(
-              onPressed: () {
-                // Navigator.pushNamed(context, CartScreen.routeName); a;adir la direccion de mensaje.
+              onPressed: () async {
+                final authToken = await TokenStorageService.getToken();
+                final userIdStr = await TokenStorageService.getUserId();
+                
+                if (authToken != null && userIdStr != null) {
+                  print('User ID retrieved from storage: $userIdStr'); // Añadir este print para depuración
+                  try {
+                    final userId = int.parse(userIdStr);
+                    Navigator.pushNamed(
+                      context,
+                      MessageScreen.routeName,
+                      arguments: MessageScreenArguments(
+                        title: product.title,
+                        price: product.price.toString(),
+                        seller: product.title,
+                        sellerId: product.sellerId,
+                        buyerId: userId,
+                        anuncioId: product.id,
+                      ),
+                    );
+                  } catch (e) {
+                    print('Error: Invalid user ID format: $userIdStr'); // Añadir el valor que causa el error
+                  }
+                } else {
+                  print('Error: Usuario no autenticado');
+                }
               },
-              child: const Text("Mensaje"),
+              child: const Text("Mensajes"),
             ),
           ),
         ),

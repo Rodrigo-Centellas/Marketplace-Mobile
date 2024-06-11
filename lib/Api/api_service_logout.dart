@@ -1,7 +1,8 @@
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String baseUrl = 'https://jose-test.site/api/auth';
+  final String baseUrl = 'http://192.168.1.106:8001/api/auth';
+  //  final String baseUrl = 'https://jose-test.site/api/auth';
 
   Future<void> logout(String token) async {
     final url = Uri.parse('$baseUrl/logout');

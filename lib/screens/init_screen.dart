@@ -4,6 +4,7 @@ import 'package:shop_app/constants.dart';
 import 'package:shop_app/screens/favorite/favorite_screen.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
+import 'package:shop_app/screens/messages/chat_screen.dart'; // Importa la nueva pantalla
 
 const Color inActiveIconColor = Color(0xFFB6B6B6);
 
@@ -28,9 +29,7 @@ class _InitScreenState extends State<InitScreen> {
   final pages = [
     const HomeScreen(),
     const FavoriteScreen(),
-    const Center(
-      child: Text("Chat"),
-    ),
+    const ChatScreen(), // Usa la nueva pantalla
     const ProfileScreen()
   ];
 
@@ -111,7 +110,7 @@ class _InitScreenState extends State<InitScreen> {
                 BlendMode.srcIn,
               ),
             ),
-            label: "Fav",
+            label: "Profile",
           ),
         ],
       ),
