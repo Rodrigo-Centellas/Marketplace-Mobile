@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'token_storage_service.dart';
+import '../const/API_URL.dart';
 
 class AuthService {
-  final String apiUrl = 'http://192.168.1.106:8001/api/auth/login';
-
+  // final String apiUrl = 'http://192.168.1.106:8001/api/auth/login';
+final String apiUrl = '${API_URL.apiUrl}/api/auth/login';
   Future<String?> login(String email, String password) async {
     final response = await http.post(
       Uri.parse(apiUrl),

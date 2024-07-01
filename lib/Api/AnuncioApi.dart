@@ -2,10 +2,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/models/anuncio.dart';
+import '../const/API_URL.dart';
 
 class ApiService {
-  static const String baseUrl  = 'http://192.168.1.106:8001/api';
-  // static const String baseUrl  = 'https://jose-test.site/api';
+  // static const String baseUrl  = 'http://192.168.1.106:8001/api';
+
+  static const String baseUrl  = '${API_URL.apiUrl}/api';
 
 
   Future<List<Anuncio>> fetchAnuncios() async {

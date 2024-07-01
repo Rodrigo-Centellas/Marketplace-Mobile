@@ -1,4 +1,5 @@
 import 'package:shop_app/Api/AnuncioApi.dart';
+import '../const/API_URL.dart';
 
 class Anuncio {
   final int id;
@@ -210,14 +211,14 @@ class Imagen {
 
   // String get fullImageUrl {
   //   // Reemplaza esta URL base con la URL base de tu servidor
-  //   const baseUrl = 'https://jose-test.site';
+  //   const baseUrl = '${API_URL.apiUrl}';
   //   return '$baseUrl/storage/images/anuncios/${url.split('/').last}';
   // }
 
     String get fullImageUrl {
-    const baseUrl = 'http://192.168.1.106:8001/api/imagenes';
-    return '$baseUrl/${url.split('/').last}';
-    //  const baseUrl = 'https://jose-test.site/api/imagenes';
+    // const baseUrl = 'http://192.168.1.106:8001/api/imagenes';
     // return '$baseUrl/${url.split('/').last}';
+     const baseUrl = '${API_URL.apiUrl}/api/imagenes';
+    return '$baseUrl/${url.split('/').last}';
   }
 }

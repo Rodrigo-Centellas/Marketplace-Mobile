@@ -74,11 +74,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/Api/token_storage_service.dart';
 import 'package:shop_app/models/chat.dart';
+import '../../const/API_URL.dart';
 import 'package:shop_app/models/Message.dart';
 
 class ChatService {
-  final String apiUrl = 'http://192.168.1.106:8001/api/auth';
-
+  final String apiUrl = '${API_URL.apiUrl}/api/auth';
+//  final String apiUrl = 'http://192.168.1.106:8001/api/auth';
   Future<String?> getAuthToken() async {
     return await TokenStorageService.getToken();
   }
@@ -142,3 +143,5 @@ class ChatService {
     }
   }
 }
+
+

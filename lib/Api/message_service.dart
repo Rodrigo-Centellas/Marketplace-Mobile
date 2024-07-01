@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/models/Message.dart';
 import 'package:shop_app/Api/token_storage_service.dart';
-
+import '../const/API_URL.dart';
 class MessageService {
-  final String apiUrl = 'http://192.168.1.106:8001/api/mensajes';
-
+  // final String apiUrl = 'http://192.168.1.106:8001/api/mensajes';
+final String apiUrl = '${API_URL.apiUrl}/api/mensajes';
   Future<List<Message>> getMessages(int user1Id, int user2Id, int anuncioId) async {
     final authToken = await TokenStorageService.getToken();
     final response = await http.get(

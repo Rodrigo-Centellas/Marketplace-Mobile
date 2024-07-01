@@ -15,6 +15,7 @@ import 'screens/splash/splash_screen.dart';
 import 'screens/messages/message_screen.dart';
 import 'screens/membership/membership_screen.dart';
 import 'screens/payment/payment_screen.dart';
+import 'screens/payment/paypal_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   InitScreen.routeName: (context) => const InitScreen(),
@@ -31,6 +32,7 @@ final Map<String, WidgetBuilder> routes = {
   CartScreen.routeName: (context) => const CartScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
   MessageScreen.routeName: (context) => const MessageScreen(),
-  // MembershipScreen.routeName: (context) => const MembershipScreen(),
-  // PaymentScreen.routeName: (context) => PaymentScreen(), // Eliminar const aquí
+  MembershipScreen.routeName: (context) => const MembershipScreen(),
+  PaymentScreen.routeName: (context) => PaymentScreen(), // Eliminar const aquí
+CheckoutPage.routeName: (context) => const CheckoutPage(),
 };

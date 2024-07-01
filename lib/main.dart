@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'The Flutter Way - Template',
       theme: AppTheme.lightTheme(context),
       initialRoute: SplashScreen.routeName,
+
       routes: routes,
     );
   }

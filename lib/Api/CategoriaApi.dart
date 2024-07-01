@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/models/Categoria.dart';
-
+import '../const/API_URL.dart';
 class ApiService {
-  final String baseUrl = 'http://192.168.1.106:8001/api';
-  // final String baseUrl = 'https://jose-test.site/api';
+  // final String baseUrl = 'http://192.168.1.106:8001/api';
+  final String baseUrl = '${API_URL.apiUrl}/api';
   Future<List<Categoria>> fetchCategorias() async {
     final response = await http.get(Uri.parse('$baseUrl/categorias'));
 
